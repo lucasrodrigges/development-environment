@@ -1,5 +1,5 @@
 # development-environment
 
 ```
-cd Downloads && sudo apt install wget -y && wget -c https://raw.githubusercontent.com/lucasrodrigges/development-environment/main/install.sh && sudo chmod +x install.sh && ./install.sh
+git clone https://github.com/lucasrodrigges/development-environment.git && cd development-enviroment && sudo chmod +x install.sh && ./install.sh
 ```
