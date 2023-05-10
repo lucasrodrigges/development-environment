@@ -9,8 +9,20 @@ npm_install_command = ["sudo", "apt", "install", "npm", "-y"]
 all_commands = [
     curl_install_command,
     wget_install_command,
-    npm_install_command
+    npm_install_command,
 ]
+
+
+def install_nvm():
+    subprocess.run(nvm_install_command=[[
+        "curl",
+        "-o",
+        "install.sh",
+        "https://raw.githubusercontent.com/creationix/nvm/master/install.sh"
+    ]])
+    subprocess.run(["bash", "install.sh"])
+    profile = "~/.bashrc"
+    subprocess.run(["source", profile])
 
 
 def install_dev_softwares():
@@ -33,6 +45,7 @@ def install_dev_softwares():
         for command in all_commands:
             print(right_arrow + "Installing " + command[3] + left_arrow)
             subprocess.run(command)
+        install_nvm()
     else:
         if "curl" in selected_options:
             print(right_arrow + "Installing curl" + left_arrow)
@@ -45,14 +58,6 @@ def install_dev_softwares():
             subprocess.run(npm_install_command)
         if "nvm" in selected_options:
             print(right_arrow + "Installing nvm" + left_arrow)
-            subprocess.run([
-                "curl",
-                "-o",
-                "install.sh",
-                "https://raw.githubusercontent.com/creationix/nvm/master/install.sh"
-            ])
-            subprocess.run(["bash", "install.sh"])
-            profile = "~/.bashrc"
-            subprocess.run(["source", profile])
+            install_nvm()
 
     print(right_arrow + "All de softwares installed" + left_arrow)
