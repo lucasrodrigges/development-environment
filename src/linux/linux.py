@@ -38,6 +38,13 @@ def customize_terminal():
         "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
     ])
 
+    with open("~/.zshrc", "a") as file:
+        file.write('export ZSH="$HOME/.oh-my-zsh"\n')
+        file.write('ZSH_THEME="robbyrussell"\n')
+        file.write(
+            'plugins=(git zsh-syntax-highlighting zsh-autosuggestions)\n'
+        )
+
 
 def linux_script():
     system_update()
