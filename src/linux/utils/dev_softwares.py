@@ -47,10 +47,10 @@ def install_dev_softwares():
             print(right_arrow + "Installing nvm" + left_arrow)
             subprocess.run([
                 "curl",
-                "-o-",
-                "https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh",
-                "|",
-                "bash"
+                "-o",
+                "install.sh",
+                "https://raw.githubusercontent.com/creationix/nvm/master/install.sh"
             ])
+            subprocess.run(["bash", "install.sh"])
 
-    print(right_arrow + "All development softwares installed" + left_arrow)
+    print(right_arrow + "All de softwares installed" + left_arrow)
