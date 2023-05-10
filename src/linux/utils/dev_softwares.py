@@ -55,5 +55,4 @@ def install_dev_softwares():
                 "~/.profile"
             ])
 
-    subprocess.run(["exec", "bash"])
-    print(right_arrow + "All softwares installed" + left_arrow)
+    print(right_arrow + "All development softwares installed" + left_arrow)
