@@ -1,4 +1,3 @@
-# import subprocess
 import platform
 from src.linux.linux import linux_script
 
