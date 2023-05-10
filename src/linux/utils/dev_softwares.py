@@ -52,5 +52,7 @@ def install_dev_softwares():
                 "https://raw.githubusercontent.com/creationix/nvm/master/install.sh"
             ])
             subprocess.run(["bash", "install.sh"])
+            profile = "~/.bashrc"
+            subprocess.run(["source", profile])
 
     print(right_arrow + "All de softwares installed" + left_arrow)
