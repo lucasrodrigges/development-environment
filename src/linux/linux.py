@@ -10,8 +10,8 @@ def system_update():
 def customize_terminal():
     print(right_arrow + "Customizing terminal" + left_arrow)
     subprocess.run(["sudo", "apt", "install", "zsh", "-y"])
-    subprocess.run(["sh", "-c", "'$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"])
-    subprocess.run(["sudo", "chsh," "-s", "$(which zsh)"])
+    subprocess.run(["./scripts/oh_my_zsh_install.sh"])
+    subprocess.run(["./scripts/zsh_customization.sh"])
 
 def linux_script():
     system_update()
