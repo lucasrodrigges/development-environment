@@ -11,8 +11,8 @@ def system_update():
 def customize_terminal():
     print(right_arrow + "Customizing terminal" + left_arrow)
     subprocess.run(["sudo", "apt", "install", "zsh", "-y"])
-    subprocess.run(["home/$USER/Downloads/development-environment/src/linux/scripts/oh_my_zsh_install.sh"])
-    subprocess.run(["home/$USER/Downloads/development-environment/src/linux/scripts/zsh_customization.sh"])
+    subprocess.run(["/home/$USER/Downloads/development-environment/src/linux/scripts/oh_my_zsh_install.sh"])
+    subprocess.run(["/home/$USER/Downloads/development-environment/src/linux/scripts/zsh_customization.sh"])
 
 def linux_script():
     system_update()
