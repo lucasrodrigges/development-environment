@@ -14,7 +14,6 @@ all_commands = [
 
 
 def install_nvm():
-    profile = "~/.bashrc"
 
     subprocess.run([
         "curl",
@@ -23,7 +22,6 @@ def install_nvm():
         "https://raw.githubusercontent.com/creationix/nvm/master/install.sh"
     ])
     subprocess.run(["bash", "install.sh"])
-    subprocess.run(["source", profile], shell=True)
 
 
 def install_dev_softwares():
