@@ -12,6 +12,7 @@ all_commands = [
     npm_install_command
 ]
 
+
 def install_dev_softwares():
     options = [
         {"name": "all", "checked": False},
@@ -27,7 +28,7 @@ def install_dev_softwares():
 
     if "all" in selected_options:
         print(right_arrow + "Installing all softwares" + left_arrow)
-        
+
         for command in all_commands:
             print(right_arrow + "Installing " + command[3] + left_arrow)
             subprocess.run(command)
