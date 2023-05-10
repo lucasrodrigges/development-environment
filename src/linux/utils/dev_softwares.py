@@ -19,6 +19,7 @@ def install_dev_softwares():
         {"name": "curl", "checked": False},
         {"name": "wget", "checked": False},
         {"name": "npm", "checked": False},
+        {"name": "nvm",  "checked": False},
     ]
 
     selected_options = checkbox(
@@ -42,3 +43,17 @@ def install_dev_softwares():
         if "npm" in selected_options:
             print(right_arrow + "Installing npm" + left_arrow)
             subprocess.run(npm_install_command)
+        if "nvm" in selected_options:
+            print(right_arrow + "Installing nvm" + left_arrow)
+            subprocess.run([
+                "curl",
+                "https://raw.githubusercontent.com/creationix/nvm/master/install.sh",
+                "|",
+                "bash",
+                "&&",
+                "source",
+                "~/.profile"
+            ])
+
+    subprocess.run(["exec", "bash"])
+    print(right_arrow + "All softwares installed" + left_arrow)
