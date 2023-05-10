@@ -18,9 +18,11 @@ def customize_terminal():
 
     subprocess.run(["sudo", "apt", "install", "zsh", "-y"])
     subprocess.run([
+        "wget",
+        "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh",
+        "&&",
         "sh",
-        "-c",
-        "'$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"
+        "install.sh"
     ])
     subprocess.run(["sudo", "chsh", "-s", "$(which zsh)"])
     subprocess.run([
