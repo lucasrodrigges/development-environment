@@ -1,10 +1,7 @@
-import os
 import subprocess
 from src.linux.utils.dev_softwares import install_dev_softwares
 
 from src.utils.arrows import left_arrow, right_arrow
-
-current_dir = os.getcwd()
 
 
 def system_update():
