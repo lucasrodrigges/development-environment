@@ -1,18 +1,24 @@
 import os
-from src.utils.arrows import left_arrow, right_arrow
 import subprocess
+from src.utils.arrows import left_arrow, right_arrow
 from src.linux.utils.dev_softwares import install_dev_softwares
+
+current_dir = os.getcwd()
 
 def system_update():
     print(right_arrow + "Updating system" + left_arrow)
+
     subprocess.run(["sudo", "apt", "update", "-y"])
     subprocess.run(["sudo", "apt", "upgrade", "-y"])
 
 def customize_terminal():
     print(right_arrow + "Customizing terminal" + left_arrow)
+
     subprocess.run(["sudo", "apt", "install", "zsh", "-y"])
-    subprocess.run(["/home/$USER/Downloads/development-environment/src/linux/scripts/oh_my_zsh_install.sh"])
-    subprocess.run(["/home/$USER/Downloads/development-environment/src/linux/scripts/zsh_customization.sh"])
+    subprocess.run(["curl", "-fsSL", "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"])
+    subprocess.run(["sudo", "chsh", "-s", "$(which zsh)"])
+    subprocess.run(["git", "clone", "https://github.com/zsh-users/zsh-syntax-highlighting.git", "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"])
+    subprocess.run(["git", "clone", "https://github.com/zsh-users/zsh-autosuggestions", "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"])
 
 def linux_script():
     system_update()
