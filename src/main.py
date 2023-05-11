@@ -1,7 +1,8 @@
 import platform
 from src.linux.linux import linux_script
+from src.utils.arrows import create_title
 
-print("Welcome to the Development Environment Setup Script")
+create_title("Welcome to the setup script")
 
 system = platform.system()
 
