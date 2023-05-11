@@ -1,4 +1,4 @@
-from src.utils.arrows import left_arrow, right_arrow
+from src.utils.arrows import create_title
 from questionary import checkbox
 import subprocess
 
@@ -14,16 +14,14 @@ all_commands = [
 
 
 def install_nvm():
-    profile = "~/.bashrc"
 
-    subprocess.run(nvm_install_command=[[
+    subprocess.run([
         "curl",
         "-o",
         "install.sh",
         "https://raw.githubusercontent.com/creationix/nvm/master/install.sh"
-    ]])
+    ])
     subprocess.run(["bash", "install.sh"])
-    subprocess.run(["source", profile])
 
 
 def install_dev_softwares():
@@ -41,24 +39,24 @@ def install_dev_softwares():
     ).ask()
 
     if "all" in selected_options:
-        print(right_arrow + "Installing all softwares" + left_arrow)
+        create_title("Installing all softwares")
 
         for command in all_commands:
-            print(right_arrow + "Installing " + command[3] + left_arrow)
+            create_title("Installing " + command[2])
             subprocess.run(command)
         install_nvm()
     else:
         if "curl" in selected_options:
-            print(right_arrow + "Installing curl" + left_arrow)
+            create_title("Installing curl")
             subprocess.run(curl_install_command)
         if "wget" in selected_options:
-            print(right_arrow + "Installing wget" + left_arrow)
+            create_title("Installing wget")
             subprocess.run(wget_install_command)
         if "npm" in selected_options:
-            print(right_arrow + "Installing npm" + left_arrow)
+            create_title("Installing npm")
             subprocess.run(npm_install_command)
         if "nvm" in selected_options:
-            print(right_arrow + "Installing nvm" + left_arrow)
+            create_title("Installing nvm")
             install_nvm()
 
-    print(right_arrow + "All de softwares installed" + left_arrow)
+    create_title("All development softwares installed")
